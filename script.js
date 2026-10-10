@@ -126,17 +126,6 @@
     });
   }
 
-  function addReaction(stage, text) {
-    stage.querySelector(".reaction")?.remove();
-    const reaction = element("div", {
-      className: "reaction",
-      text,
-      attrs: { role: "status" }
-    });
-    stage.append(reaction);
-    reaction.scrollIntoView({ behavior: "auto", block: "nearest" });
-  }
-
   function later(callback, delay) {
     const timer = window.setTimeout(callback, reduceMotion.matches ? Math.min(delay, 60) : delay);
     state.timers.push(timer);
@@ -178,13 +167,13 @@
       state.current = nextStage;
       state.isTransitioning = false;
       renderCurrent();
-    }, reduceMotion.matches ? 10 : 160);
+    }, reduceMotion.matches ? 10 : 110);
   }
 
   function returnAfterEdit(field) {
     if (state.editing !== field) return false;
     state.editing = null;
-    later(() => goTo("resumo", { addHistory: false }), 360);
+    later(() => goTo("resumo", { addHistory: false }), 90);
     return true;
   }
 
@@ -218,26 +207,24 @@
         answers.convite = option.valor;
         answers.conviteId = option.id;
         lockChoices(choices, button);
-        addReaction(stage, option.reacao);
+        showToast(option.reacao);
 
         if (option.id === "nao") {
           answers.periodo = "";
           answers.passeio = "";
           answers.data = "";
           answers.observacoes = "";
-        } else {
-          launchConfetti();
         }
 
         let destination = option.id === "nao" ? "resumo" : "periodo";
         if (state.editing === "convite") {
           state.editing = null;
           if (option.id === "sim" && answers.periodo && answers.passeio && answers.data) destination = "resumo";
-          later(() => goTo(destination, { addHistory: false }), 480);
+          later(() => goTo(destination, { addHistory: false }), 90);
           return;
         }
 
-        later(() => goTo(destination), 480);
+        later(() => goTo(destination), 90);
       });
       choices.append(button);
     });
@@ -263,7 +250,7 @@
         answers.periodo = option.valor;
         lockChoices(choices, button);
         showToast("Período anotado ✓");
-        if (!returnAfterEdit("periodo")) later(() => goTo("passeio"), 320);
+        if (!returnAfterEdit("periodo")) later(() => goTo("passeio"), 90);
       });
       choices.append(button);
     });
@@ -289,7 +276,7 @@
         answers.passeio = option.valor;
         lockChoices(choices, button);
         showToast("Boa escolha — anotado ✓");
-        if (!returnAfterEdit("passeio")) later(() => goTo("planejamento"), 320);
+        if (!returnAfterEdit("passeio")) later(() => goTo("planejamento"), 90);
       });
       choices.append(button);
     });
