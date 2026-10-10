@@ -3,7 +3,6 @@
  * do Supabase podem ficar no navegador. Nunca coloque chaves secretas neste arquivo.
  */
 const CONFIG = {
-  nomeDestinataria: "NOME_DELA",
   nomeRemetente: "MEU_NOME",
   formspreeEndpoint: "https://formspree.io/f/SEU_ID_AQUI",
   supabaseUrl: "https://bvdoncefyfviguxwpesp.supabase.co",
@@ -11,93 +10,62 @@ const CONFIG = {
   supabaseTable: "respostas_convite",
 
   tema: {
-    rosa: "#f06f9e",
-    lilas: "#b990f5",
-    roxo: "#7055b8",
-    fundo: "#100d1b"
+    vermelho: "#ef3340",
+    vermelhoEscuro: "#8f1421",
+    destaque: "#ff6b72",
+    fundo: "#09090b"
   },
 
   textos: {
     tituloPagina: "Tenho uma coisinha pra te perguntar...",
     abertura: {
-      titulo: "Ei, {nome}, tenho uma coisinha pra te perguntar... 👀",
-      subtitulo: "Na verdade, são algumas perguntas. Mas prometo que vale a pena chegar até o final.",
-      botao: "Começar ✨"
-    },
-    disponibilidade: {
-      pergunta: "Antes de tudo... como anda sua agenda ultimamente? 🤔",
-      opcoes: [
-        {
-          valor: "Tá bem tranquila 😎",
-          reacao: "Interessante... isso facilita algumas coisas 👀"
-        },
-        {
-          valor: "Um pouquinho corrida 😅",
-          reacao: "Entendi, vamos ver se encontramos um espacinho então."
-        },
-        {
-          valor: "Depende de quem tá perguntando 👀",
-          reacao: "Essa resposta foi suspeitamente interessante KKKK."
-        }
-      ]
-    },
-    passeio: {
-      introducao: "Agora uma pergunta muito importante...",
-      pergunta: "Qual desses rolês você escolheria?",
-      opcoes: [
-        { valor: "Comer alguma coisa 🍕", icone: "🍕", legenda: "Comida boa resolve muita coisa" },
-        { valor: "Cinema 🍿", icone: "🍿", legenda: "Filme, comentários e pipoca" },
-        { valor: "Passear e conversar 🌆", icone: "🌆", legenda: "Sem pressa e com assunto" },
-        { valor: "Uma surpresa 🎁", icone: "🎁", legenda: "Um pouco de mistério faz bem" }
-      ]
-    },
-    estilo: {
-      pergunta: "Qual dessas opções combina mais com você?",
-      opcoes: [
-        { valor: "Um lugar tranquilo pra conversar.", reacao: "Boa. Conversa boa merece espaço e zero pressa." },
-        { valor: "Alguma coisa divertida e diferente.", reacao: "Gostei da energia. Já dá pra pensar em algo fora do óbvio." },
-        { valor: "Um passeio sem muito planejamento.", reacao: "Espontaneidade aprovada — com um mínimo de direção, talvez 😅" },
-        { valor: "Tanto faz, o importante é a companhia.", reacao: "Essa foi forte... e muito bem colocada 👀" }
-      ]
-    },
-    preparacao: {
-      mensagens: [
-        "Tá...",
-        "Até aqui tudo bem.",
-        "Agora vem a verdadeira pergunta...",
-        "Promete que não vai rir? 😅"
-      ],
-      botao: "Pode perguntar 👀"
+      titulo: "Ei, tenho uma coisinha pra te perguntar... 👀",
+      subtitulo: "É rapidinho. Mas prometo que vale a pena chegar até o final.",
+      botao: "Começar ✦"
     },
     convite: {
-      pergunta: "Você aceitaria sair comigo qualquer dia desses? 💗",
-      apoio: "Sem pegadinha. A resposta é totalmente sua.",
+      pergunta: "Você aceitaria sair comigo qualquer dia desses? ❤️",
+      apoio: "Sem pegadinha e sem pressão. A resposta é totalmente sua.",
       opcoes: [
         {
           id: "sim",
-          valor: "Simm, bora! 💗",
-          reacao: "Aí sim! Meu planejamento secreto acaba de ganhar uma chance real ✨"
-        },
-        {
-          id: "talvez",
-          valor: "Talvez... vamos conversar sobre isso 👀",
-          reacao: "Justo! Conversar é um ótimo começo — sem pressão nenhuma."
+          valor: "Sim, bora! ❤️",
+          reacao: "Aí sim! Agora vamos aos detalhes ✨"
         },
         {
           id: "nao",
-          valor: "Prefiro não 😅",
-          reacao: "Tudo bem! Obrigado por responder e entrar na brincadeira 😊"
+          valor: "Prefiro não",
+          reacao: "Tudo bem! Obrigado por responder com sinceridade 😊"
         }
       ]
     },
-    planejamento: {
-      pergunta: "E quando seria um bom dia pra gente combinar alguma coisa?",
+    periodo: {
+      pergunta: "Qual período combina mais com você?",
+      apoio: "Escolha o horário em que você costuma ficar mais à vontade.",
       opcoes: [
-        "Durante a semana.",
-        "No fim de semana.",
-        "Ainda não sei.",
-        "Quero escolher uma data."
-      ],
+        { valor: "Dia ☀️", icone: "☀️", legenda: "Luz, energia e tempo de sobra" },
+        { valor: "Tarde 🌤️", icone: "🌤️", legenda: "Um meio-termo perfeito" },
+        { valor: "Noite 🌙", icone: "🌙", legenda: "Clima bom e conversa sem pressa" }
+      ]
+    },
+    passeio: {
+      introducao: "Agora escolha a vibe",
+      pergunta: "Qual desses rolês você toparia?",
+      apoio: "Vale escolher pelo estômago, pela curiosidade ou pelos dois.",
+      opcoes: [
+        { valor: "Sushi 🍣", icone: "🍣", legenda: "Combinados e conversa boa" },
+        { valor: "Pizza 🍕", icone: "🍕", legenda: "Clássico que nunca decepciona" },
+        { valor: "Massa 🍝", icone: "🍝", legenda: "Confortável e caprichado" },
+        { valor: "Hambúrguer 🍔", icone: "🍔", legenda: "Casual e sem cerimônia" },
+        { valor: "Cinema 🍿", icone: "🍿", legenda: "Filme, comentários e pipoca" },
+        { valor: "Passear e conversar 🌆", icone: "🌆", legenda: "Sem pressa e com assunto" },
+        { valor: "Café e sobremesa ☕", icone: "☕", legenda: "Doce, tranquilo e certeiro" },
+        { valor: "Uma surpresa 🎁", icone: "🎁", legenda: "Um pouco de mistério faz bem" }
+      ]
+    },
+    planejamento: {
+      pergunta: "Qual dia funciona melhor pra você?",
+      apoio: "Escolha uma data a partir de hoje.",
       observacao: "Tem algum lugar em mente ou alguma observação? 👀",
       placeholder: "Pode escrever aqui (opcional)..."
     },
@@ -109,12 +77,8 @@ const CONFIG = {
     },
     finais: {
       sim: {
-        titulo: "Prontinho! 💗",
+        titulo: "Prontinho! ❤️",
         texto: "Agora é só a gente combinar os detalhes."
-      },
-      talvez: {
-        titulo: "Prontinho! ✨",
-        texto: "Obrigado por responder. A gente conversa!"
       },
       nao: {
         titulo: "Prontinho! 😊",
@@ -125,4 +89,3 @@ const CONFIG = {
 };
 
 window.CONFIG = CONFIG;
-

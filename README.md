@@ -8,7 +8,6 @@ Abra `config.js` e altere:
 
 ```js
 const CONFIG = {
-  nomeDestinataria: "NOME_DELA",
   nomeRemetente: "MEU_NOME",
   formspreeEndpoint: "https://formspree.io/f/SEU_ID_AQUI",
   supabaseUrl: "https://SEU_PROJETO.supabase.co",
@@ -19,7 +18,7 @@ const CONFIG = {
 ```
 
 - Os nomes, textos, opções, reações, mensagens finais e cores ficam centralizados nesse arquivo.
-- Mantenha o `id: "sim"`, `id: "talvez"` e `id: "nao"` das respostas do convite, pois eles controlam os caminhos condicionais.
+- Mantenha o `id: "sim"` e o `id: "nao"` das respostas do convite, pois eles controlam os caminhos condicionais.
 
 ## Salvar e consultar as respostas no Supabase
 
@@ -39,7 +38,7 @@ create table public.respostas_convite (
   estilo_encontro text not null,
   resposta_convite text not null,
   resposta_convite_id text not null
-    check (resposta_convite_id in ('sim', 'talvez', 'nao')),
+    check (resposta_convite_id in ('sim', 'nao')),
   disponibilidade_dia text not null,
   data_escolhida date,
   observacoes text not null
