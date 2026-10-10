@@ -134,7 +134,7 @@
       attrs: { role: "status" }
     });
     stage.append(reaction);
-    reaction.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "nearest" });
+    reaction.scrollIntoView({ behavior: "auto", block: "nearest" });
   }
 
   function later(callback, delay) {
@@ -162,7 +162,7 @@
     clearTimers();
     app.experience.replaceChildren(renderers[state.current]());
     updateProgress();
-    window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
+    window.scrollTo({ top: 0, behavior: "auto" });
     later(() => app.experience.querySelector(".stage")?.focus({ preventScroll: true }), 30);
   }
 
@@ -178,13 +178,13 @@
       state.current = nextStage;
       state.isTransitioning = false;
       renderCurrent();
-    }, reduceMotion.matches ? 10 : 220);
+    }, reduceMotion.matches ? 10 : 160);
   }
 
   function returnAfterEdit(field) {
     if (state.editing !== field) return false;
     state.editing = null;
-    later(() => goTo("resumo", { addHistory: false }), 600);
+    later(() => goTo("resumo", { addHistory: false }), 360);
     return true;
   }
 
@@ -233,11 +233,11 @@
         if (state.editing === "convite") {
           state.editing = null;
           if (option.id === "sim" && answers.periodo && answers.passeio && answers.data) destination = "resumo";
-          later(() => goTo(destination, { addHistory: false }), 850);
+          later(() => goTo(destination, { addHistory: false }), 480);
           return;
         }
 
-        later(() => goTo(destination), 850);
+        later(() => goTo(destination), 480);
       });
       choices.append(button);
     });
@@ -263,7 +263,7 @@
         answers.periodo = option.valor;
         lockChoices(choices, button);
         showToast("Período anotado ✓");
-        if (!returnAfterEdit("periodo")) later(() => goTo("passeio"), 500);
+        if (!returnAfterEdit("periodo")) later(() => goTo("passeio"), 320);
       });
       choices.append(button);
     });
@@ -289,7 +289,7 @@
         answers.passeio = option.valor;
         lockChoices(choices, button);
         showToast("Boa escolha — anotado ✓");
-        if (!returnAfterEdit("passeio")) later(() => goTo("planejamento"), 500);
+        if (!returnAfterEdit("passeio")) later(() => goTo("planejamento"), 320);
       });
       choices.append(button);
     });
@@ -606,7 +606,7 @@
   function showSendError(status, message) {
     status.classList.add("is-error");
     status.textContent = message;
-    status.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "nearest" });
+    status.scrollIntoView({ behavior: "auto", block: "nearest" });
   }
 
   function todayLocal() {
@@ -637,23 +637,23 @@
     app.confetti.replaceChildren();
     const colors = ["#ef3340", "#ff6b72", "#8f1421", "#f3d3d5", "#ffffff"];
     const fragment = document.createDocumentFragment();
-    for (let index = 0; index < 28; index += 1) {
+    for (let index = 0; index < 16; index += 1) {
       const piece = element("span", { className: "confetti-piece" });
       piece.style.left = `${Math.random() * 100}%`;
       piece.style.setProperty("--confetti-color", colors[index % colors.length]);
-      piece.style.setProperty("--fall-duration", `${1.8 + Math.random() * 1.4}s`);
-      piece.style.setProperty("--fall-delay", `${Math.random() * 0.3}s`);
+      piece.style.setProperty("--fall-duration", `${1.3 + Math.random() * 0.7}s`);
+      piece.style.setProperty("--fall-delay", `${Math.random() * 0.18}s`);
       piece.style.setProperty("--drift-x", `${-65 + Math.random() * 130}px`);
       piece.style.setProperty("--rotation", `${360 + Math.random() * 720}deg`);
       fragment.append(piece);
     }
     app.confetti.append(fragment);
-    window.setTimeout(() => app.confetti.replaceChildren(), 3500);
+    window.setTimeout(() => app.confetti.replaceChildren(), 2200);
   }
 
   function createSparkles() {
     const fragment = document.createDocumentFragment();
-    for (let index = 0; index < 14; index += 1) {
+    for (let index = 0; index < 8; index += 1) {
       const sparkle = element("span", { className: "sparkle" });
       sparkle.style.left = `${4 + Math.random() * 92}%`;
       sparkle.style.top = `${4 + Math.random() * 90}%`;
