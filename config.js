@@ -6,7 +6,7 @@ const CONFIG = {
   nomeDestinataria: "NOME_DELA",
   nomeRemetente: "MEU_NOME",
   formspreeEndpoint: "https://formspree.io/f/SEU_ID_AQUI",
-  supabaseUrl: "https://bvdoncefyfviquxwpesp.supabase.co",
+  supabaseUrl: "https://bvdoncefyfviguxwpesp.supabase.co",
   supabasePublishableKey: "sb_publishable__oBL2o93QXXRBeiYVJb2tg_EKQHu_4t",
   supabaseTable: "respostas_convite",
 
