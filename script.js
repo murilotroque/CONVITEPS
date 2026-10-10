@@ -445,7 +445,6 @@
     stage.append(element("div", { className: "final-mark", text: icon, attrs: { "aria-hidden": true } }));
     addHeading(stage, finalCopy.titulo, 1);
     stage.append(element("p", { className: "lead", text: finalCopy.text }));
-    stage.append(element("p", { className: "final-signature", text: `— ${config.nomeRemetente}` }));
     if (answers.conviteId === "sim") later(launchConfetti, 150);
     return stage;
   }

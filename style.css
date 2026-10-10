@@ -699,12 +699,6 @@ textarea:focus-visible {
   opacity: 0 !important;
 }
 
-.final-signature {
-  margin: 26px 0 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .toast {
   position: fixed;
   right: 18px;
